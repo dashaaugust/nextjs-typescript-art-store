@@ -1,0 +1,16 @@
+@import "src/styles/variables.scss";
+
+.logo {
+  color: $text-color;
+  text-transform: uppercase;
+  outline: none;
+  font: {
+    family: "Roboto";
+    weight: 400;
+    size: 28px;
+  }
+}
+
+.bright {
+  color: $accent-color;
+}

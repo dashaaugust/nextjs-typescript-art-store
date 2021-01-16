@@ -1,0 +1,58 @@
+import { IGalleryCard } from "types";
+
+export const MOCK_CARDS: IGalleryCard[] = [
+  {
+    id: "link-to-img-1",
+    title: "Sea",
+    description: "Lorem Ipsum is simply dummy text",
+    img: "images/1.jpg",
+    altImg: "Sea",
+    isForSell: false,
+    price: 112,
+  },
+  {
+    id: "link-to-img-2",
+    title: "Forest",
+    description: "Latin professor",
+    img: "images/2.jpg",
+    altImg: "Forest",
+    isForSell: true,
+    price: 10,
+  },
+  {
+    id: "link-to-img-3",
+    title: "Forest",
+    description: "Lorem",
+    img: "images/3.jpg",
+    altImg: "Forest",
+    isForSell: false,
+    price: 15,
+  },
+  {
+    id: "link-to-img-4",
+    title: "Sea",
+    description: "Lorem Ipsum is simply dummy text",
+    img: "images/4.jpg",
+    altImg: "Sea",
+    isForSell: true,
+    price: 23,
+  },
+  {
+    id: "link-to-img-5",
+    title: "Forest",
+    description: "Latin professor",
+    img: "images/1.jpg",
+    altImg: "Forest",
+    isForSell: false,
+    price: 124,
+  },
+  {
+    id: "link-to-img-6",
+    title: "Forest",
+    description: "Lorem Ipsum is simply dummy text",
+    img: "images/2.jpg",
+    altImg: "Forest",
+    isForSell: false,
+    price: 11,
+  },
+];

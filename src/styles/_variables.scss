@@ -1,0 +1,29 @@
+/* Breakpoints */
+$size-xs-min: 0;
+$size-sm-min: 360px;
+$size-phone-min: 480px;
+$size-md-min: 768px;
+$size-lg-min: 1024px;
+$size-xl-min: 1280px;
+$size-xxl-min: 1440px;
+
+$size-xs-max: ($size-sm-min - 1px); /* 359px */
+$size-phone-max: ($size-phone-min - 1px); /* 479px */
+$size-sm-max: ($size-md-min - 1px); /* 767px */
+$size-md-max: ($size-lg-min - 1px); /* 1023px */
+$size-lg-max: ($size-xl-min - 1px); /* 1279px */
+$size-xl-max: ($size-xxl-min - 1px); /* 1439px */
+
+$transition-duration: 0.5s;
+
+/* Palette */
+$white-color: white;
+$accent-color: rgb(255, 168, 168);
+$favorite-color: rgb(255, 60, 93);
+$success-color: rgb(31, 97, 77);
+
+/* Text theme */
+$title-color: rgb(29, 29, 29);
+$text-color: rgb(29, 29, 29);
+$second-text-color: rgb(68, 68, 68);
+$hover-color: $accent-color;

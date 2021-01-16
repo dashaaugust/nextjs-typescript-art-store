@@ -1,0 +1,207 @@
+@import "src/styles/common.scss";
+@import "src/styles/variables.scss";
+
+.header {
+  position: sticky;
+  top: 0;
+  background-color: $white-color;
+  z-index: 3;
+}
+
+.wrap {
+  position: relative;
+}
+
+.content {
+  @extend .main-container;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: {
+    top: 25px;
+    bottom: 25px;
+  }
+}
+
+.nav {
+  $list-max-width: 350px;
+  order: -1;
+  display: flex;
+  align-items: center;
+
+  @media (min-width: $size-md-max) {
+    order: initial;
+  }
+
+  &List {
+    width: 0;
+    height: 100vh;
+    background-color: transparent;
+    overflow: hidden;
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 1;
+    text-transform: uppercase;
+    transition: background-color $transition-duration;
+
+    @media (min-width: $size-md-max) {
+      position: static;
+      visibility: visible;
+      height: initial;
+      width: initial;
+      overflow: initial;
+    }
+
+    &Active {
+      width: 100%;
+      background-color: rgba($accent-color, 0.8);
+    }
+  }
+
+  &ListContent {
+    padding: 60px 10px 10px;
+    display: flex;
+    flex-direction: column;
+    width: inherit;
+    height: inherit;
+    max-width: $list-max-width;
+    background-color: $white-color;
+    position: absolute;
+    left: -$list-max-width;
+    top: 0;
+    transition: left $transition-duration;
+
+    .link {
+      margin-bottom: 10px;
+    }
+
+    &Active {
+      left: 0;
+      visibility: visible;
+    }
+
+    @media (min-width: $size-md-max) {
+      padding: 0;
+      max-width: initial;
+      display: initial;
+      position: static;
+
+      .link {
+        margin-bottom: 0;
+      }
+    }
+  }
+}
+
+.burgerIconBase {
+  border-radius: 2px;
+  width: 30px;
+  height: 3px;
+  background-color: $text-color;
+  transition: background-color $transition-duration, transform $transition-duration;
+}
+
+.burger {
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+}
+
+.burgerIcon {
+  @extend .burgerIconBase;
+  position: relative;
+  z-index: 2;
+  display: inline-block;
+
+  @media (min-width: $size-md-max) {
+    display: none;
+  }
+
+  &:after {
+    content: "";
+    @extend .burgerIconBase;
+    position: absolute;
+    top: 8px;
+    left: 0;
+  }
+
+  &:before {
+    content: "";
+    @extend .burgerIconBase;
+    position: absolute;
+    bottom: 8px;
+    left: 0;
+  }
+
+  &Active {
+    background-color: transparent;
+
+    &:after {
+      transform: rotate(45deg) translate(-7px, -4px);
+    }
+
+    &:before {
+      transform: rotate(-45deg) translate(-7px, 4px);
+    }
+  }
+}
+
+.link {
+  width: 100%;
+  color: $text-color;
+  font: {
+    size: 20px;
+  }
+  transition: color $transition-duration;
+
+  &:not(:last-child) {
+    margin-right: 40px;
+  }
+
+  border: 2px solid transparent;
+  position: relative;
+
+  &::after {
+    width: 0%;
+    height: 2px;
+    display: block;
+    background-color: $hover-color;
+    content: "";
+    position: absolute;
+    top: 32px;
+    left: 50%;
+    transition: left $transition-duration cubic-bezier(0.215, 0.61, 0.355, 1),
+      width $transition-duration cubic-bezier(0.215, 0.61, 0.355, 1);
+  }
+
+  &:hover {
+    color: $hover-color;
+
+    &::after {
+      width: 100%;
+      height: 2px;
+      display: block;
+      background-color: $hover-color;
+      content: "";
+      position: absolute;
+      top: 32px;
+      left: 0;
+    }
+  }
+}
+
+.basket {
+  cursor: pointer;
+  path {
+    fill: $text-color;
+    transition: fill $transition-duration;
+  }
+
+  &:hover {
+    path {
+      fill: $hover-color;
+    }
+  }
+}
