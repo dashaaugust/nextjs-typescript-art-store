@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import { useRef, useState, MouseEvent, KeyboardEvent } from "react";
 import { useClickOutside } from "hooks";
 import { FieldLabel } from "components";
 import { ArrowDownIcon, CrossIcon } from "assets";
@@ -6,21 +6,26 @@ import { SelectOption, SelectProps } from "./Select.types";
 import { DEFAULT_OPTION } from "./Select.constants";
 import styles from "./Select.module.scss";
 
-const Select: React.FC<SelectProps> = ({ options, className, label }) => {
+const Select: React.FC<SelectProps> = ({ value, onChange, options, className, label }) => {
+  const selectedOption = value || DEFAULT_OPTION;
+  const isSelected = selectedOption.id !== DEFAULT_OPTION.id;
+
   const [isOpen, setIsOpen] = useState(false);
-  const [selectedOption, setOptionValue] = useState<SelectOption>(DEFAULT_OPTION);
 
   const closeDropdown = () => setIsOpen(false);
 
   const toggleRef = useRef<HTMLDivElement>(null);
   const dropdownRef = useClickOutside<HTMLDivElement, HTMLDivElement>(closeDropdown, toggleRef);
 
-  const handleSelect = (selected: SelectOption) => () => {
-    setOptionValue(selected);
+  const handleSelect = (selected: SelectOption) => (
+    e: MouseEvent<HTMLLIElement> | KeyboardEvent<HTMLLIElement>
+  ) => {
+    e.stopPropagation();
+    onChange(selected);
     closeDropdown();
   };
 
-  const clearSelect = () => setOptionValue(DEFAULT_OPTION);
+  const clearSelect = () => onChange(DEFAULT_OPTION);
 
   const toggleDropdown = () => setIsOpen((prev) => !prev);
 
@@ -42,8 +47,6 @@ const Select: React.FC<SelectProps> = ({ options, className, label }) => {
       </ul>
     </div>
   );
-
-  const isSelected = selectedOption.id !== DEFAULT_OPTION.id;
 
   return (
     <FieldLabel label={label} className={className}>

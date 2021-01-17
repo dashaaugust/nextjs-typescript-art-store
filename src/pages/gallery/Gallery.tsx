@@ -2,16 +2,20 @@ import Head from "next/head";
 import { MainLayout } from "layouts";
 import { Button, GalleryCard, Select } from "components";
 import { MATERIAL_OPTIONS, MEDIUMS_OPTIONS, MOCK_CARDS } from "invariable";
-import { FormEvent } from "react";
+import { FormEvent, useState } from "react";
 import { FilterIcon } from "assets";
+import { SelectOption } from "components/Select/Select.types";
 import homeStyles from "../home/Home.module.scss";
 import styles from "./Gallery.module.scss";
 
 const Gallery = () => {
+  const [material, setMaterial] = useState<SelectOption | null>(null);
+  const [mediums, setMediums] = useState<SelectOption | null>(null);
+
   const onSubmit = (e: FormEvent<EventTarget>) => {
     e.preventDefault();
     // TODO: submit form
-    console.log("submit");
+    console.log("submit", material, mediums);
   };
 
   return (
@@ -29,8 +33,20 @@ const Gallery = () => {
             <FilterIcon className={styles.filterIcon} />
           </h2>
           <form onSubmit={onSubmit} className={styles.filterFrom}>
-            <Select label="Materials" options={MATERIAL_OPTIONS} className={styles.filterSelect} />
-            <Select label="Mediums" options={MEDIUMS_OPTIONS} className={styles.filterSelect} />
+            <Select
+              value={material}
+              onChange={setMaterial}
+              label="Materials"
+              options={MATERIAL_OPTIONS}
+              className={styles.filterSelect}
+            />
+            <Select
+              value={mediums}
+              onChange={setMediums}
+              label="Mediums"
+              options={MEDIUMS_OPTIONS}
+              className={styles.filterSelect}
+            />
             <Button type="submit" className={styles.filterButton}>
               Apply
             </Button>
