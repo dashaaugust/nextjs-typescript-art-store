@@ -42,7 +42,9 @@ const Home = () => {
 
         {/* TODO: correct link */}
         <div className={styles.sectionButton}>
-          <LinkButton href={Paths.buyArt}>Show more</LinkButton>
+          <LinkButton href={Paths.buyArt} className={styles.linkButton}>
+            Show more
+          </LinkButton>
         </div>
       </section>
 

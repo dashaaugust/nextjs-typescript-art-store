@@ -1,14 +1,12 @@
 import Link from "next/link";
 import { FC } from "react";
 import classNames from "classnames";
-import styles from "../Button/Button.module.scss";
 import { LinkButtonProps } from "./LinkButton.types";
 import { isRouterLink } from "./LinkButton.utils";
+import buttonStyles from "../Button/Button.module.scss";
 
-const LinkButton: FC<LinkButtonProps> = (props) => {
-  const { children, className, variant = "primary", ...rest } = props;
-
-  const classes = classNames(styles[`${variant}Button`], className);
+const LinkButton: FC<LinkButtonProps> = ({ children, className, variant = "primary", ...rest }) => {
+  const classes = classNames(buttonStyles[`${variant}Button`], className);
 
   if (isRouterLink(rest)) {
     return (

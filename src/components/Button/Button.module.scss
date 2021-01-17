@@ -2,24 +2,30 @@
 
 .button {
   text-transform: uppercase;
-  display: inline-block;
-  padding: 10px 25px;
+  padding: 0 25px;
+  height: 50px;
   border: 3px solid transparent;
+  font: {
+    family: "Roboto";
+    size: 16px;
+    weight: 500;
+  }
+  line-height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   transition: border-color $transition-duration, color $transition-duration,
     background-color $transition-duration, box-shadow $transition-duration;
-  font-weight: 500;
-  font-size: 16px;
-  font-family: "Roboto";
-  line-height: 24px;
 }
 
 .primaryButton {
   @extend .button;
   color: $title-color;
   border-color: $title-color;
+
   &:hover,
   &:focus {
     color: $white-color;
-    box-shadow: inset 150px 0 0 0 $title-color;
+    box-shadow: inset 180px 0 0 0 $title-color;
   }
 }

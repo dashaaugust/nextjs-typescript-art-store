@@ -1,0 +1,38 @@
+@import "src/styles/variables.scss";
+
+.filter {
+  margin-bottom: 40px;
+
+  &Title {
+    display: flex;
+    align-items: center;
+    font: {
+      family: "Roboto";
+      size: 24px;
+      weight: 500;
+    }
+    line-height: 24px;
+    color: $title-color;
+    margin-bottom: 20px;
+  }
+
+  &Icon {
+    width: 20px;
+    margin-left: 10px;
+  }
+
+  &From {
+    display: flex;
+    align-items: flex-end;
+  }
+
+  &Select {
+    width: 40%;
+    margin-right: 20px;
+  }
+
+  &Button {
+    height: 44px;
+    flex-grow: 1;
+  }
+}

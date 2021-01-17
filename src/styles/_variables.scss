@@ -17,13 +17,16 @@ $size-xl-max: ($size-xxl-min - 1px); /* 1439px */
 $transition-duration: 0.5s;
 
 /* Palette */
+$black-color: rgb(29, 29, 29);
 $white-color: white;
 $accent-color: rgb(255, 168, 168);
 $favorite-color: rgb(255, 60, 93);
 $success-color: rgb(31, 97, 77);
 
 /* Text theme */
-$title-color: rgb(29, 29, 29);
-$text-color: rgb(29, 29, 29);
+$title-color: $black-color;
+$text-color: $black-color;
 $second-text-color: rgb(68, 68, 68);
 $hover-color: $accent-color;
+
+$box-shadow: 1px 1px 8px rgba($black-color, 0.1);

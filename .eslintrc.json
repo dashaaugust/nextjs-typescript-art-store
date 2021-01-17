@@ -66,7 +66,8 @@
     "no-shadow": "off",
     "@typescript-eslint/no-shadow": ["error"],
     "import/prefer-default-export": "off",
-    "react/display-name": "off"
+    "react/display-name": "off",
+    "import/no-cycle": "off"
   },
   "settings": {
     "import/resolver": {

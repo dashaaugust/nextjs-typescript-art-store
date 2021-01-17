@@ -2,13 +2,17 @@ import { useRef, useEffect, useCallback, RefObject } from "react";
 
 const useClickOutside = <T extends HTMLElement, R extends HTMLElement = HTMLElement>(
   onClose: VoidFunction,
-  toggleRef?: RefObject<any>
-): RefObject<R> => {
+  toggleRef?: RefObject<R>
+): RefObject<T> => {
   const ref = useRef<T>(null);
 
   const mouseListener = useCallback(
     (e) => {
-      if (!ref.current?.contains(e.target) && !toggleRef.current?.contains(e.target)) {
+      // if (!ref.current?.contains(e.target)) {
+      //   onClose();
+      // }
+
+      if (!ref.current?.contains(e.target) && !toggleRef?.current?.contains(e.target)) {
         onClose();
       }
     },
