@@ -1,0 +1,71 @@
+@import "src/styles/variables.scss";
+
+.toggle {
+  cursor: pointer;
+  outline: none;
+  border: 3px solid $title-color;
+  position: relative;
+  display: flex;
+  align-items: center;
+  height: 44px;
+  padding: 0 10px;
+  font: {
+    family: "Roboto";
+    size: 16px;
+    weight: 400;
+  }
+  line-height: 20px;
+  color: $title-color;
+}
+
+.dropdown {
+  position: absolute;
+  left: 0;
+  top: 50px;
+  width: 100%;
+  background-color: $white-color;
+  z-index: 3;
+  padding: 15px 0;
+  box-shadow: $box-shadow;
+
+  &Item {
+    color: $title-color;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: color $transition-duration, background-color $transition-duration;
+
+    &:hover {
+      background-color: $black-color;
+      color: $white-color;
+    }
+  }
+}
+
+.iconBase {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 12px;
+
+  path {
+    transition: fill $transition-duration;
+  }
+
+  &:hover {
+    path {
+      fill: $hover-color;
+    }
+  }
+}
+
+.arrow {
+  @extend .iconBase;
+  width: 16px;
+}
+
+.clear {
+  &Icon {
+    @extend .iconBase;
+    width: 14px;
+  }
+}
